@@ -6,7 +6,7 @@ Created on Jul 20, 2021
 import sys
 from PyQt5.QtWidgets import QApplication, QFileDialog
 
-from gui.gui import Gui
+from gui import Gui
 
 
 
@@ -27,7 +27,7 @@ class TrainGUI (Gui):
 def main():
 
     app = QApplication(sys.argv)
-    tg=TrainGUI
+    tg=TrainGUI()
     tg.makeTrainingButtons()
     sys.exit(app.exec_())
     
