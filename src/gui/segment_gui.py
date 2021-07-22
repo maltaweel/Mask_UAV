@@ -7,7 +7,7 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton, QFileDialog, QInputDialog, QLineEdit
 
 from gui import Gui
-from custome_segmentation import segmentation as segment
+from segmentation import custom_segmentation as segment
 
 class SegmentGUI(Gui):
     
@@ -56,7 +56,7 @@ def main():
 
     app = QApplication([])
     sg=SegmentGUI()
-    sg.makeSegmentButtons(app)
+    sg.makeSegmentingButtons(app)
     sys.exit(app.exec_())
     
 if __name__ == '__main__':
