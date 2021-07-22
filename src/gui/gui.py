@@ -6,18 +6,20 @@ Created on Jul 20, 2021
 from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton
 
 
-class Gui:
+class Gui (QWidget):
+    def __init__(self):
+        super().__init__()
     
     def makeWidgetPushButton(self,widgets, app):
-        window = QWidget()
-        layout = QVBoxLayout()
+    
+        layout = self.layout
         
         n=0
         for i in widgets:
             b1=QPushButton(i)
             b1.setCheckable(True)
             b1.toggle()
-         #  b1.clicked.connect(lambda:self.whichbtn(self.b1))
+           #b1.clicked.connect(lambda:self.whichbtn(self.b1))
             if n==0:
                 b1.clicked.connect(self.doActionOne)
             else:
@@ -25,11 +27,6 @@ class Gui:
             n+=1
             layout.addWidget(b1)
         
-        self.startButton(layout)
-        window.setLayout(layout)
-        window.show()
-        app.exec()
-        self.layout=layout
     
     def startButton(self,layout):
         b1=QPushButton('Start')
