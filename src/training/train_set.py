@@ -5,7 +5,6 @@ Created on Mar 27, 2021
 '''
 import os
 import csv
-import pixellib
 from pixellib.custom_train import instance_custom_training
 
 pn=os.path.abspath(__file__)
@@ -27,9 +26,7 @@ def startTraining(training_location,weight_location, batch, classN,network,epoch
     train_maskrcnn.train_model(num_epochs = epoch, augmentation=True,  path_trained_models = model_path)
 
 def loadTraining():
-    pn=os.path.abspath(__file__)
-    pn=pn.split("src")[0]
-    
+        
     f=os.path.join(pn,'training_data','training_data.csv')
     
     #open files
