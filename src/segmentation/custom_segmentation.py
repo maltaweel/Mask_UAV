@@ -11,7 +11,7 @@ from pixellib.instance import custom_segmentation
 pn=os.path.abspath(__file__)
 pn=pn.split("src")[0]
 
-def startSegmenting(image,weight,classNumber,classes):
+def startSegmenting(image,weight,classNumber,classes, boundBox):
     #path info
     path=image
     #model_path=os.path.join(pn,'model_dir')
@@ -29,7 +29,7 @@ def startSegmenting(image,weight,classNumber,classes):
         
     segment_image.inferConfig(num_classes= classNumber, class_names=addClasses)
     segment_image.load_model(weights_path)
-    segmask, output=segment_image.segmentImage(path, show_bboxes=True, output_image_name=output_segmentation,
+    segmask, output=segment_image.segmentImage(path, show_bboxes=boundBox, output_image_name=output_segmentation,
             extract_segmented_objects= True, save_extracted_objects=False)
 
     outputData(segmask,seg_out)
@@ -54,5 +54,5 @@ if __name__ == "__main__":
     image=os.path.join(pn,'structures','test','Burials-APAAME_20100601_SES-0108.jpg')
     weight_location=os.path.join(pn,'weights','mask_rcnn_model.001-1.412928.h5')
     
-    startSegmenting(image,weight_location,1,['BG','ruined structure'])
+    startSegmenting(image,weight_location,1,['BG','ruined structure'],True)
     
