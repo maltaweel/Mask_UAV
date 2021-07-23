@@ -32,22 +32,27 @@ def startSegmenting(image,weight,classNumber,classes, boundBox):
     segmask, output=segment_image.segmentImage(path, show_bboxes=boundBox, output_image_name=output_segmentation,
             extract_segmented_objects= True, save_extracted_objects=False)
 
-    outputData(segmask,seg_out)
+    outputData(segmask,seg_out,output)
     
-def outputData(segmask,seg_out):
-    res = segmask["extracted_objects"]
+def outputData(segmask,seg_out, output):
+#   res = segmask["extracted_objects"]
     scores=segmask['scores']
+#   masks=segmask['masks']
+    rois=segmask['rois']
     ids=segmask['class_ids']
 
-    fieldnames=['id','a','b','c','score']
+    fieldnames=['id','a','b','c','d','score']
+    
+    print(output.shape)
     with open(seg_out, 'w') as csvf:
         #write the output
         writer = csv.DictWriter(csvf, fieldnames=fieldnames)
 
         writer.writeheader() 
 
-        for i in range(0,len(res)):
-            writer.writerow({'id':str(ids[i]),'a': str(res[i].shape[0]),'b':str(res[i].shape[1]),'c':str(res[i].shape[2]),
+        for i in range(0,len(rois)):
+            roi=rois[i]
+            writer.writerow({'id':str(ids[i]),'a': str(roi[0]),'b':str(roi[1]),'c':str(roi[2]),'d':str(roi[3]),
                          'score':str(scores[i])})
         
 if __name__ == "__main__":
