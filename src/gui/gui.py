@@ -19,7 +19,7 @@ class Gui (QWidget):
             b1=QPushButton(i)
             b1.setCheckable(True)
             b1.toggle()
-           #b1.clicked.connect(lambda:self.whichbtn(self.b1))
+          
             if n==0:
                 b1.clicked.connect(self.doActionOne)
             else:
