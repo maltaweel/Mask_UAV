@@ -5,8 +5,8 @@ Created on Jul 26, 2021
 '''
 import sys
 from PyQt5.QtWidgets import QApplication, QLabel, QHBoxLayout, QRadioButton,QWidget, QVBoxLayout, QPushButton, QFileDialog, QInputDialog, QLineEdit
-import train_gui as train
-import segment_gui as segment
+from train_gui import TrainGUI
+from segment_gui import SegmentGUI
 
 from gui import Gui
 
@@ -55,12 +55,12 @@ class ControllerGUI (Gui):
 
     def start(self):
         if self.isTraining is True:
-            train.main()
-            self.app.quit()
+            tg=TrainGUI()
+            tg.makeTrainingButtons(self.app)
             
         if self.isSegmenting is True:
-            segment.main()
-            self.app.quit()
+            sg=SegmentGUI
+            sg.makeSegmentingButtons(self.app)
             
 
 def main():
