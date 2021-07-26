@@ -5,10 +5,12 @@ Created on Jul 22, 2021
 @author: maltaweel
 '''
 import sys
+
 from PyQt5.QtWidgets import QApplication, QLabel, QHBoxLayout, QRadioButton,QWidget, QVBoxLayout, QPushButton, QFileDialog, QInputDialog, QLineEdit
 
 from gui import Gui
 from segmentation import custom_segmentation as segment
+
 
 class SegmentGUI(Gui):
     
