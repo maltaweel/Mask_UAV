@@ -42,5 +42,9 @@ class Gui (QWidget):
     def doActionTwo(self):
         print('action')
     
+    def boundSelection(self):
+        if self.b1.isChecked():
+            return True
+    
     def start(self):
         print('start')
