@@ -4,14 +4,14 @@ Created on Jul 20, 2021
 
 @author: maltaweel
 '''
-from PyQt5.QtWidgets import QApplication, QWidget, QVBoxLayout, QPushButton
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QVBoxLayout, QPushButton
 
 
-class Gui (QWidget):
+class Gui (QMainWindow):
     def __init__(self):
         super().__init__()
     
-    def makeWidgetPushButton(self,widgets, app):
+    def makeWidgetPushButton(self,widgets):
     
         layout = self.layout
         

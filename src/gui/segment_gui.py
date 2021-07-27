@@ -22,7 +22,7 @@ class SegmentGUI(Gui):
         window = QWidget()
         self.layout=QVBoxLayout()
         widgets=['Segment Image','Weight File']
-        self.makeWidgetPushButton(widgets,app)
+        self.makeWidgetPushButton(widgets)
         
         btn = QPushButton('Input Class Name(s)')
         btn.toggle()

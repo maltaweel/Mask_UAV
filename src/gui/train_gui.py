@@ -22,9 +22,10 @@ class TrainGUI (Gui):
         
     def makeTrainingButtons(self, app):
         window = QWidget()
+        self.window=window
         self.layout=QVBoxLayout()
         widgets=['Training Library','Weight File']
-        self.makeWidgetPushButton(widgets,app)
+        self.makeWidgetPushButton(widgets)
         
         btn = QPushButton('Input Classes and Batch Dialog')
         btn.toggle()
@@ -36,7 +37,7 @@ class TrainGUI (Gui):
         self.startButton(self.layout)
         window.setLayout(self.layout)
         window.show()
-        app.exec()
+#       app.exec()
 
     def defaultInput(self):
         
