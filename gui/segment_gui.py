@@ -127,7 +127,7 @@ class SegmentGUI(Gui):
         else:
             segment.startSegmenting(self.image, self.model,self.classNumber,self.classes,self.boundBox,self.video)
             self.child_Win = ChildWindow()
-            self.child_Win.showWindow()
+            self.child_Win.showWindow(self.image,self.video)
        
 def main():
 
