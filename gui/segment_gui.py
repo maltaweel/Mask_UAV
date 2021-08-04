@@ -6,7 +6,8 @@ Created on Jul 22, 2021
 '''
 import sys
 
-from PyQt5.QtWidgets import QApplication, QLabel, QHBoxLayout, QRadioButton,QWidget, QVBoxLayout, QPushButton, QFileDialog, QInputDialog, QLineEdit
+from PyQt5.QtWidgets import QApplication, QButtonGroup, QLabel, QHBoxLayout, QRadioButton,QWidget, QVBoxLayout, QPushButton, QFileDialog, QInputDialog, QLineEdit
+
 
 from gui.gui import Gui
 from gui.child_window import ChildWindow
@@ -53,6 +54,10 @@ class SegmentGUI(Gui):
         self.segment_directory=location
         
     def boundingBox(self):
+        
+        box_group=QButtonGroup(self)
+        video_group=QButtonGroup(self)
+        
         self.b1 = QRadioButton("Button1")
         self.b1.setChecked(False)
         self.b1.toggled.connect(self.boundSelection)
@@ -64,7 +69,8 @@ class SegmentGUI(Gui):
         horizontalLayout1.addWidget(label1)
         horizontalLayout1.addWidget(self.b1)
         
-        self.layout.addLayout(horizontalLayout1)
+        box_group.addButton(self.b1)
+        box_group.setExclusive(False)
         
         self.b2 = QRadioButton("Button2")
         self.b2.setChecked(False)
@@ -73,9 +79,17 @@ class SegmentGUI(Gui):
         horizontalLayout2 = QHBoxLayout()
       
         label2 = QLabel("Segment Video?")
+        
+        horizontalLayout1.addWidget(label2)
+        horizontalLayout1.addWidget(self.b2)
+        
+        self.layout.addLayout(horizontalLayout1)
      
         horizontalLayout2.addWidget(label2)
         horizontalLayout2.addWidget(self.b2)
+        
+        video_group.addButton(self.b2)
+        video_group.setExclusive(False)
         
         self.layout.addLayout(horizontalLayout2)
     
