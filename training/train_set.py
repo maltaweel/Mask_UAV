@@ -7,7 +7,6 @@ Created on Mar 27, 2021
 import os
 import csv
 from pixellib.custom_train import instance_custom_training
-import sys
 
 pn=os.path.abspath(__file__)
 pn=pn.split("training")[0]
@@ -54,7 +53,7 @@ if __name__ == "__main__":
     # use this for HPC training
     #first setup paths for training and weight 
     #and other details from input file
-
+    
     tlocation,wlocation,bn,cn,nModel,epochs=loadTraining()
     
     #do the training
