@@ -45,6 +45,8 @@ def loadTraining():
             cn=int(row['Class Number'])
             nModel=row['Network Model']
             epochs=int(row['Epochs'])
+        
+        csvfile.close()
      
     return tlocation,wlocation,bn,cn,nModel,epochs       
 
