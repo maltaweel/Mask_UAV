@@ -49,7 +49,7 @@ def loadTraining():
      
     return tlocation,wlocation,bn,cn,nModel,epochs       
 
-if __name__ == "__main__":
+if __name__ == "controller":
     # use this for HPC training
     #first setup paths for training and weight 
     #and other details from input file
