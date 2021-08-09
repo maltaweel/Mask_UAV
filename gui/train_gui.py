@@ -30,7 +30,7 @@ class TrainGUI (Gui):
         widgets=['Training Library','Weight File']
         self.makeWidgetPushButton(widgets)
         
-        btn = QPushButton('Input Class Number and Batch Dialog')
+        btn = QPushButton('Input Class Number and Batch Number')
         btn.toggle()
         btn.clicked.connect(self.showDialog)
         self.layout.addWidget(btn)
@@ -132,7 +132,7 @@ def main():
     tg.makeTrainingButtons(app)
     sys.exit(app.exec_())
 '''    
-if __name__ == '__main__':
+if __name__ == 'controller':
     main()
 '''
         

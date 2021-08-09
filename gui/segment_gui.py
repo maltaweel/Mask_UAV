@@ -27,7 +27,7 @@ class SegmentGUI(Gui):
     def makeSegmentingButtons(self, app):
         window = QWidget()
         self.layout=QVBoxLayout()
-        widgets=['Segment Image','Model Weight File']
+        widgets=['Segment Image','Model File']
         self.makeWidgetPushButton(widgets)
         
         b3=QPushButton('Segment Folder')
@@ -136,6 +136,6 @@ def main():
     sg.makeSegmentingButtons(app)
     sys.exit(app.exec_())
 '''    
-if __name__ == '__main__':
+if __name__ == 'controller':
     main()
 '''

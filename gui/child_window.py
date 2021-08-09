@@ -92,6 +92,6 @@ def main():
     sg=ChildWindow()
     sg.showWindow()
 '''
-if __name__ == '__main__':
+if __name__ == 'controller':
     main()
 '''
