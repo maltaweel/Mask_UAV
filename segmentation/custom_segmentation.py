@@ -108,7 +108,7 @@ def outputData(segmask,seg_out, output):
             writer.writerow({'id':str(item),'a': str(roi[0]),'b':str(roi[1]),'c':str(roi[2]),'d':str(roi[3]),
                          'score':str(scores[i])})
         
-if __name__ == "__main__":
+if __name__ == "controller":
     weight_location=os.path.join(pn,'weights','mask_rcnn_model.003-3.374101.h5')
     images_path=os.path.join(pn,'structures','test')
     
