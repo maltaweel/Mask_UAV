@@ -2,9 +2,9 @@ MASK_RCNN_Drone
 
 This project is for developing drone image analysis using a Mask R-CNN algorithm to segment and auto-detect archaeological features. This functions enabled include annotation handling, model creation for deep learning classification based on training data, and segmentation options for analysed images.
 
-Users should also look at Labelme <a href=https://github.com/wkentaro/labelme> </a> and PixelLib <a href=https://pixellib.readthedocs.io/en/latest/> </a> for more information about the annotation, training, and segmentation capabilities used.
+Users should also look at Labelme (https://github.com/wkentaro/labelme) and PixelLib (https://pixellib.readthedocs.io/en/latest/) for more information about the annotation, training, and segmentation capabilities used.
 
-The workflow of the software is given below
+The workflow of the software is given below:
 ![workflow](https://user-images.githubusercontent.com/6896620/128731973-c67bc528-f4fc-4e43-b0f2-8f6c4f57b156.jpg)
 
 
