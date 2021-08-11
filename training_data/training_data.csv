@@ -1,2 +1,2 @@
 Training Location,Weight Location,Batch Number,Class Number,Network Model,Epochs
-/home/maltaweel/eclipse-workspace/Mask_RCNN_UAV/structures,/home/maltaweel/eclipse-workspace/Mask_RCNN_UAV/weights/mask_rcnn_coco.h5,4,3,resnet101,300
+/home/eclipse-workspace/Mask_RCNN_UAV/structures,/home/eclipse-workspace/Mask_RCNN_UAV/weights/mask_rcnn_model.003-3.374101.h5,4,3,resnet101,300
