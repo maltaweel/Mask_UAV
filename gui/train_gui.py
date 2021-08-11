@@ -177,7 +177,7 @@ class TrainGUI (Gui):
             #write the header
             writer.writeheader()
             
-            #write the output
+            #write the output that has user choices
             writer.writerow({'Training Location': str(self.training),
             'Weight Location':str(self.weight),'Batch Number':str(self.batch),
             'Class Number':str(self.classN),'Network Model':str(self.network),
