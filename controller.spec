@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['controller.py'],
-             pathex=['/home/maltaweel/eclipse-workspace/Mask_RCNN_UAV'],
+             pathex=['/home/eclipse-workspace/Mask_RCNN_UAV'],
              binaries=[],
              datas=[],
              hiddenimports=['tensor.compiler','tensorflow.compiler.tf2tensorrt','tensorflow.compiler.tf2tensorrt.ops.gen_trt_ops','tensorflow.compiler.tf2tensorrt.ops','tensorflow.contrib'],
