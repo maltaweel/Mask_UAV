@@ -34,6 +34,14 @@ After training is conducted, a .h5 model will result from training runs. This mo
 
 
 
+<B>Installation of Project</B>
+
+The package can be downloaded and installed using the standard git clone command or download. To install required libraries, use the requirements.txt file in the main folder (i.e., pip install -r requirements.txt).
+
+The folder also contains a controller.spec file, which can be used to package the code and create a distribution. This can be done by installing PyInstaller (pip intall pyinstaller) and then using a pyinstaller command (python -m PyInstaller --onedir --windowed controller.spec) from the project folder. You may need to manually installer some tensorflow files after build, due to some problems installing tensorflow using PyInstaller. This can be done by moving the required libraries to the folder indicated in any error message. The Labelme default_config.yaml file may also need to be manually installer into the distribution, which can be found in the labelme/config folder in this project. Simply follow the pathway indicated to place the required default_config.yaml file.  
+
+
+
 
 
 
