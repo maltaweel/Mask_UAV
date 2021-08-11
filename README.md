@@ -1,7 +1,8 @@
 MASK_RCNN_Drone
 
-This project is for developing drone image analysis using a Mask R-CNN algorithm to segment and auto-detect archaeological features. 
-This functions enabled include annotation handling, model creation for deep learning classification based on training data, and segmentation options for analysed images.
+This project is for developing drone image analysis using a Mask R-CNN algorithm to segment and auto-detect archaeological features. This functions enabled include annotation handling, model creation for deep learning classification based on training data, and segmentation options for analysed images.
+
+Users should also look at Labelme <a href=https://github.com/wkentaro/labelme> </a> and PixelLib <a href=https://pixellib.readthedocs.io/en/latest/> </a> for more information about the annotation, training, and segmentation capabilities used.
 
 The workflow of the software is given below
 ![workflow](https://user-images.githubusercontent.com/6896620/128731973-c67bc528-f4fc-4e43-b0f2-8f6c4f57b156.jpg)
@@ -36,9 +37,13 @@ After training is conducted, a .h5 model will result from training runs. This mo
 
 <B>Installation of Project</B>
 
-The package can be downloaded and installed using the standard git clone command or download. To install required libraries, use the requirements.txt file in the main folder (i.e., pip install -r requirements.txt).
+The package can be downloaded and installed using the standard git clone command or download. To install required libraries, use the requirements.txt file in the main folder (i.e., pip install -r requirements.txt). The main GUI can be run by simply launching controller.py in the main folder.
 
-The folder also contains a controller.spec file, which can be used to package the code and create a distribution. This can be done by installing PyInstaller (pip intall pyinstaller) and then using a pyinstaller command (python -m PyInstaller --onedir --windowed controller.spec) from the project folder. You may need to manually installer some tensorflow files after build, due to some problems installing tensorflow using PyInstaller. This can be done by moving the required libraries to the folder indicated in any error message. The Labelme default_config.yaml file may also need to be manually installer into the distribution, which can be found in the labelme/config folder in this project. Simply follow the pathway indicated to place the required default_config.yaml file.  
+The folder also contains a controller.spec file, which can be used to package the code and create a distribution. This can be done by installing PyInstaller (pip intall pyinstaller) and then using a pyinstaller command (python -m PyInstaller --onedir --windowed controller.spec) from the project folder. Before this step, however, you may need to edit the pathex variable in the .spec file to your local path. After running PyInstaller, you may need to manually install some tensorflow files after build, due to some problems installing tensorflow using PyInstaller. This can be done by moving the required libraries to the folder indicated in any error message. The Labelme default_config.yaml file may also need to be manually installer into the distribution, which can be found in the labelme/config folder in this project. Simply follow the pathway indicated to place the required default_config.yaml file. 
+
+<B>Running on HPC</B>
+
+Users may want to run the training provided on an HPC system. In this case, what is required is running train_set.py in the training folder. The training_data folder contains the training_data.csv file, which can be edited to run the required data. The input in the .csv file includes the path location of the training data, the weight file location (that is the initial .h5 file), the batch number used in the run, the network model (e.g., resnet101), and number of epochs for runs. See PixelLib for further details on these parameters.
 
 
 
