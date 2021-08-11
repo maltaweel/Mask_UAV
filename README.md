@@ -1,9 +1,10 @@
-MASK_RCNN_Drone
+<H1>MASK_RCNN_UAV</H1>
 
-This project is for developing drone image analysis using a Mask R-CNN algorithm to segment and auto-detect archaeological features. 
-This functions enabled include annotation handling, model creation for deep learning classification based on training data, and segmentation options for analysed images.
+This project is for developing drone image analysis using a Mask R-CNN algorithm to segment and auto-detect archaeological features. This functions enabled include annotation handling, model creation for deep learning classification based on training data, and segmentation options for analysed images.
 
-The workflow of the software is given below
+Users should also look at Labelme (https://github.com/wkentaro/labelme) and PixelLib (https://pixellib.readthedocs.io/en/latest/) for more information about the annotation, training, and segmentation capabilities used.  The Mask_RCNN_UAV project was created and tested using Python 3.8+.
+
+In regards to this software, the workflow of the software is given below with the overview to follow:
 ![workflow](https://user-images.githubusercontent.com/6896620/128731973-c67bc528-f4fc-4e43-b0f2-8f6c4f57b156.jpg)
 
 
@@ -31,6 +32,28 @@ Training is done by first launching the training gui via the controller. There, 
 After training is conducted, a .h5 model will result from training runs. This model can be used to conduct segmentation on either image files or videos. Going back to the controller.py module, and after a user selects segmentation, a small window opens to enable user choices for segmentation. Users can select a single image or video file. A choice for the model can be made, which enables the user to select which deep learning model output to use for segmentation. One option is to select a segmentation folder, which is a group of images to segment rather than a single image. If a directory for segmentation is chosen, then the folder will be segmented rather than a single image. The classes, which are the names of the annotated classes used, are also inputted (e.g., ruined structures, qanats, and mounded sites). An option to have a bounding box on images is given as well. If a single video is chosen to segment, which can be chosen using the ‘Segment Image’ option, then indicating that this is a video option can be done in the radio button option (‘Segment Video?’). After these, a user can then start the operation using the start button, which launches the custom_segmentation.py module in the segmentation folder. If a single image is selected, another window will open that shows the segmented image to users. Outputs from segmentation include a segment_data.csv file. This file is found in the output_segmentation folder. The file contains the name of the segmented class found in the image, the locations of the bounding box coordinates, and the score of the identified class. The segmented image(s) will be located in the output_segmentation folder.
 
 ![Screenshot from 2021-08-09 11-48-14](https://user-images.githubusercontent.com/6896620/128745750-256e5a11-d288-4691-aaa4-3a6129e2b878.png)
+
+
+
+<B>Installation of Project</B>
+
+The package can be downloaded and installed using the standard git clone command or download. To install required libraries, use the requirements.txt file in the main folder (i.e., pip install -r requirements.txt). The main GUI can be run by simply launching controller.py in the main folder.
+
+The folder also contains a controller.spec file, which can be used to package the code and create a distribution. This can be done by installing PyInstaller (pip intall pyinstaller) and then using a pyinstaller command (python -m PyInstaller --onedir --windowed controller.spec) from the project folder. Before this step, however, you may need to edit the pathex variable in the .spec file to your local path. After running PyInstaller, you may need to manually install some tensorflow files after build, due to some problems installing tensorflow using PyInstaller. This can be done by moving the required libraries to the folder indicated in any error message. The Labelme default_config.yaml file may also need to be manually installer into the distribution, which can be found in the labelme/config folder in this project. Simply follow the pathway indicated to place the required default_config.yaml file. 
+
+<B>Running on HPC</B>
+
+Users may want to run the training provided on an HPC system. In this case, what is required is running train_set.py in the training folder. The training_data folder contains the training_data.csv file, which can be edited to run the required data. The input in the .csv file includes the path location of the training data, the weight file location (that is the initial .h5 file), the batch number used in the run, the network model (e.g., resnet101), and number of epochs for runs. See PixelLib for further details on these parameters.
+
+<B>Subfolders</B>
+
+The first subfolder is the gui folder, which contains the GUI components. The train_gui.py module applies the main training GUI, while segment_gui.py applies the segmentation. 
+
+The segmentation subfolder contains custom_segmentation.py, which applies the segmentation used and outputs segmented images to the output_segmentation folder. The module image_segment.py is testing code but it can be modified by users if they wish to create their own segmentation.
+
+The subfolder training contains train_set.py, which can be run independently and uses the training_data/training_data.csv file for training. 
+
+The icons subfolder could be used to create an icon for the built controller package using the controller.spec file. This can be done by adding --icon=icons/mask.png to the pyinstaller command. The labelme folder contains the file (default_config.yml) used in the installation of the project. 
 
 
 
