@@ -5,7 +5,8 @@ This project is for developing drone image analysis using a Mask R-CNN algorithm
 Users should also look at Labelme (https://github.com/wkentaro/labelme) and PixelLib (https://pixellib.readthedocs.io/en/latest/) for more information about the annotation, training, and segmentation capabilities used.  The Mask_RCNN_UAV project was created and tested using Python 3.8+.
 
 In regards to this software, the workflow of the software is given below with the overview to follow:
-![workflow](https://user-images.githubusercontent.com/6896620/128731973-c67bc528-f4fc-4e43-b0f2-8f6c4f57b156.jpg)
+![workflow](https://user-images.githubusercontent.com/6896620/128998737-e5e28587-e5ab-4451-aabf-da0f2d7c070a.jpg)
+
 
 
 
@@ -29,7 +30,7 @@ Training is done by first launching the training gui via the controller. There, 
 
 <B>Segmentation</B>
 
-After training is conducted, a .h5 model will result from training runs. This model can be used to conduct segmentation on either image files or videos. Going back to the controller.py module, and after a user selects segmentation, a small window opens to enable user choices for segmentation. Users can select a single image or video file. A choice for the model can be made, which enables the user to select which deep learning model output to use for segmentation. One option is to select a segmentation folder, which is a group of images to segment rather than a single image. If a directory for segmentation is chosen, then the folder will be segmented rather than a single image. The classes, which are the names of the annotated classes used, are also inputted (e.g., ruined structures, qanats, and mounded sites). An option to have a bounding box on images is given as well. If a single video is chosen to segment, which can be chosen using the ‘Segment Image’ option, then indicating that this is a video option can be done in the radio button option (‘Segment Video?’). After these, a user can then start the operation using the start button, which launches the custom_segmentation.py module in the segmentation folder. If a single image is selected, another window will open that shows the segmented image to users. Outputs from segmentation include a segment_data.csv file. This file is found in the output_segmentation folder. The file contains the name of the segmented class found in the image, the locations of the bounding box coordinates, and the score of the identified class. The segmented image(s) will be located in the output_segmentation folder.
+After training is conducted, a .h5 model will result from training runs. This model can be used to conduct segmentation on either image files or videos. Going back to the controller.py module, and after a user selects segmentation, a small window opens to enable user choices for segmentation. Users can select a single image or video file. A choice for the model can be made, which enables the user to select which deep learning model output to use for segmentation. One option is to select a segmentation folder, which is a group of images to segment rather than a single image. If a directory for segmentation is chosen, then the folder will be segmented rather than a single image. The classes, which are the names of the annotated classes used, are also inputted (e.g., ruined structures, qanats, and mounded sites). An option to have a bounding box on images is given as well. If a single video is chosen to segment, which can be chosen using the ‘Segment Image’ option, then indicating that this is a video option can be done in the radio button option (‘Segment Video?’). After these, a user can then start the operation using the start button, which launches the custom_segmentation.py module in the segmentation folder. If a single image is selected, another window will open that shows the segmented image to users. Outputs from segmentation include a segment_data.csv file, which provides segmentation summary data. This file is found in the output_segmentation folder. The file contains the name of the segmented class found in the image, the locations of the bounding box coordinates, and the score of the identified class. The segmented image(s) will be located in the output_segmentation folder.
 
 ![Screenshot from 2021-08-09 11-48-14](https://user-images.githubusercontent.com/6896620/128745750-256e5a11-d288-4691-aaa4-3a6129e2b878.png)
 
@@ -49,11 +50,11 @@ Users may want to run the training provided on an HPC system. In this case, what
 
 The first subfolder is the gui folder, which contains the GUI components. The train_gui.py module applies the main training GUI, while segment_gui.py applies the segmentation. 
 
-The segmentation subfolder contains custom_segmentation.py, which applies the segmentation used and outputs segmented images to the output_segmentation folder. The module image_segment.py is testing code but it can be modified by users if they wish to create their own segmentation.
+The segmentation subfolder contains custom_segmentation.py, which applies the segmentation used and outputs segmented images to the output_segmentation folder. There segment_data.csv file is also outputted to the output_segmentation folder, with the file containing information about the item segmented and its location in an image. The module image_segment.py is testing code but it can be modified by users if they wish to create their own segmentation.
 
 The subfolder training contains train_set.py, which can be run independently and uses the training_data/training_data.csv file for training. 
 
-The icons subfolder could be used to create an icon for the built controller package using the controller.spec file. This can be done by adding --icon=icons/mask.png to the pyinstaller command. The labelme folder contains the file (default_config.yml) used in the installation of the project. 
+The icons subfolder could be used to create an icon for the built controller package using the controller.spec file. This can be done by adding --icon=icons/mask.png to the pyinstaller command. The labelme folder contains the file (default_config.yml) used in the installation of the project. The model_dir folder will contain the .h5 file output from trainging.
 
 
 
