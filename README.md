@@ -45,6 +45,14 @@ The folder also contains a controller.spec file, which can be used to package th
 
 Users may want to run the training provided on an HPC system. In this case, what is required is running train_set.py in the training folder. The training_data folder contains the training_data.csv file, which can be edited to run the required data. The input in the .csv file includes the path location of the training data, the weight file location (that is the initial .h5 file), the batch number used in the run, the network model (e.g., resnet101), and number of epochs for runs. See PixelLib for further details on these parameters.
 
+<B>Subfolders</B>
+
+The first subfolder is the gui folder, which contains the GUI components. The train_gui.py module applies the main training GUI, while segment_gui.py applies the segmentation. 
+
+The segmentation subfolder contains custom_segmentation.py, which applies the segmentation used and outputs segmented images to the output_segmentation folder. The module image_segment.py is testing code but it can be modified by users if they wish to create their own segmentation.
+
+The subfolder training contains train_set.py, which can be run independently and uses the training_data/training_data.csv file for training. 
+
 
 
 
