@@ -9,7 +9,7 @@ import gui.segment_gui as segment
 import labelme.__main__ as labelMe
 
 def main():
-    result=easygui.buttonbox('Click on your choice.', 'Options', ('Training', 'Segmentation','Annotation'))
+    result=easygui.buttonbox('Click on your choice.', 'Options', ('Annotation','Training','Segmentation'))
     
     if result=='Training':
         train.main()
