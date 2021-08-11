@@ -49,11 +49,11 @@ Users may want to run the training provided on an HPC system. In this case, what
 
 The first subfolder is the gui folder, which contains the GUI components. The train_gui.py module applies the main training GUI, while segment_gui.py applies the segmentation. 
 
-The segmentation subfolder contains custom_segmentation.py, which applies the segmentation used and outputs segmented images to the output_segmentation folder. The module image_segment.py is testing code but it can be modified by users if they wish to create their own segmentation.
+The segmentation subfolder contains custom_segmentation.py, which applies the segmentation used and outputs segmented images to the output_segmentation folder. There segment_data.csv file is also outputted to the output_segmentation folder, with the file containing information about the item segmented and its location in an image. The module image_segment.py is testing code but it can be modified by users if they wish to create their own segmentation.
 
 The subfolder training contains train_set.py, which can be run independently and uses the training_data/training_data.csv file for training. 
 
-The icons subfolder could be used to create an icon for the built controller package using the controller.spec file. This can be done by adding --icon=icons/mask.png to the pyinstaller command. The labelme folder contains the file (default_config.yml) used in the installation of the project. 
+The icons subfolder could be used to create an icon for the built controller package using the controller.spec file. This can be done by adding --icon=icons/mask.png to the pyinstaller command. The labelme folder contains the file (default_config.yml) used in the installation of the project. The model_dir folder will contain the .h5 file output from trainging.
 
 
 
