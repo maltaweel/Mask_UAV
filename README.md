@@ -53,6 +53,8 @@ The segmentation subfolder contains custom_segmentation.py, which applies the se
 
 The subfolder training contains train_set.py, which can be run independently and uses the training_data/training_data.csv file for training. 
 
+The icons subfolder could be used to create an icon for the built controller package using the controller.spec file. This can be done by adding --icon=icons/mask.png to the pyinstaller command.
+
 
 
 
