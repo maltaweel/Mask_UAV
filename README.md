@@ -1,8 +1,8 @@
 <H1>MASK_RCNN_UAV</H1>
 
-This project is for developing drone image analysis using a Mask R-CNN algorithm to segment and auto-detect archaeological features. This functions enabled include annotation handling, model creation for deep learning classification based on training data, and segmentation options for analysed images.
+This project is for developing drone (UAV) image analysis using a Mask R-CNN algorithm to segment and auto-detect archaeological features. Other algorithms are planned but this is the current working version. The current functionality include annotation handling, model creation for deep learning classification based on training data, and segmentation options for analysed images.
 
-Users should also look at Labelme (https://github.com/wkentaro/labelme) and PixelLib (https://pixellib.readthedocs.io/en/latest/) for more information about the annotation (Labelme), training (PixelLib), and segmentation (PixelLib) capabilities used.  The Mask_RCNN_UAV project was created and tested using Python 3.8+.
+Users should also look at Labelme (https://github.com/wkentaro/labelme) and PixelLib (https://pixellib.readthedocs.io/en/latest/) for more information about the annotation (Labelme), training (PixelLib), and segmentation (PixelLib) capabilities used.  The Mask_UAV project was created and tested using Python 3.8+.
 
 In regards to this software, the workflow of the software is given below with the overview to follow:
 ![workflow](https://user-images.githubusercontent.com/6896620/128998737-e5e28587-e5ab-4451-aabf-da0f2d7c070a.jpg)
@@ -14,6 +14,12 @@ The controller.py module enables options to conduct annotation, training, and se
 
 ![Screenshot from 2021-08-09 11-40-56](https://user-images.githubusercontent.com/6896620/128730858-dec2c198-0c88-4119-9411-3f0064028fe3.png)
 
+
+<B>Running and Installation of Project</B>
+
+The package can be downloaded and installed using the standard git clone command or download. To install required libraries, use the requirements.txt file in the main folder that contains the needed external libraries (i.e., pip install -r requirements.txt). The main GUI can be run by simply launching controller.py in the main folder. The code was tested on Python 3.8 but users should be sure to have at least Python 3.6 or higher installed.
+
+The folder also contains a controller.spec file, which can be used to package the code and create a distribution. This can be done by installing PyInstaller (pip intall pyinstaller) and then using a pyinstaller command (python -m PyInstaller --onedir --windowed controller.spec) from the project folder to create the build and distribution folders. Before this step, however, you may need to edit the pathex variable in the .spec file to your own local path. After running PyInstaller, you may need to manually install some tensorflow files after build, due to some problems installing tensorflow using PyInstaller. This can be done by moving the required libraries to the distribution folder indicated in any error message. The Labelme default_config.yaml file may also need to be manually installed into the distribution, which can be found in the labelme/config folder in this project. Simply follow the pathway indicated to place the required default_config.yaml file in the distrbution folder that is created by PyInstaller. Once built and the distribution folder created, simply go to the distribution folder and launch the controller file inside (e.g., in Linux ./controller).
 
 <B>Annotation</B> 
 
@@ -34,12 +40,6 @@ After training is conducted, a .h5 model will result from training runs. This mo
 
 ![Screenshot from 2021-08-09 11-48-14](https://user-images.githubusercontent.com/6896620/128745750-256e5a11-d288-4691-aaa4-3a6129e2b878.png)
 
-
-<B>Running and Installation of Project</B>
-
-The package can be downloaded and installed using the standard git clone command or download. To install required libraries, use the requirements.txt file in the main folder that contains the needed external libraries (i.e., pip install -r requirements.txt). The main GUI can be run by simply launching controller.py in the main folder. The code was tested on Python 3.8 but users should be sure to have at least Python 3.6 or higher installed.
-
-The folder also contains a controller.spec file, which can be used to package the code and create a distribution. This can be done by installing PyInstaller (pip intall pyinstaller) and then using a pyinstaller command (python -m PyInstaller --onedir --windowed controller.spec) from the project folder to create the build and distribution folders. Before this step, however, you may need to edit the pathex variable in the .spec file to your own local path. After running PyInstaller, you may need to manually install some tensorflow files after build, due to some problems installing tensorflow using PyInstaller. This can be done by moving the required libraries to the distribution folder indicated in any error message. The Labelme default_config.yaml file may also need to be manually installed into the distribution, which can be found in the labelme/config folder in this project. Simply follow the pathway indicated to place the required default_config.yaml file in the distrbution folder that is created by PyInstaller. Once built and the distribution folder created, simply go to the distribution folder and launch the controller file inside (e.g., in Linux ./controller).
 
 <B>Running on HPC</B>
 
