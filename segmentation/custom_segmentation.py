@@ -146,7 +146,7 @@ def outputFolderData(segmask,seg_out):
                 #write the output
                 writer.writerow({'id':str(item),'a': str(roi[0]),'b':str(roi[1]),'c':str(roi[2]),'d':str(roi[3]),
                          'score':str(scores[ii])})
-        
+        #close the file
         csvf.close()
 '''
 Method to output a single image to a .csv file
@@ -197,4 +197,4 @@ if __name__ == "__main__":
     #startSegmenting(image,weight_location,3,['qanat','mounded sites','ruined structure'],True, False)
     
     
-    segmentFolder(weight_location,3,['mounded sites','qanat','ruined structure'],True,images_path)
+    segmentFolder(weight_location,3,['ruined-structures','qanat_line','mounded sites'],True,images_path)
