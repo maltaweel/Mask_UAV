@@ -187,7 +187,7 @@ def outputData(segmask,seg_out, output):
         
         csvf.close()
 
-#this is just for testing and not to be normally used      
+#this is just for testing to see if folder data is segmented.     
 if __name__ == "__main__":
     weight_location=os.path.join(pn,'weights','mask_rcnn_model.003-3.374101.h5')
     images_path=os.path.join(pn,'structures','test')
