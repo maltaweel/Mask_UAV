@@ -1,0 +1,4 @@
+pixellib==0.6.6
+labelme==4.5.9
+easygui==0.98.2
+PyQt5==5.15.4
