@@ -17,7 +17,7 @@ pn=os.path.abspath(__file__)
 pn=pn.split("segmentation")[0]
 addClasses=[]  #classes to segment
 seg_out=os.path.join(pn,'output_segmentation','segment_data.csv')
-
+os.environ['LD_LIBRARY_PATH'] = os.getcwd() #set path for qt5
 '''
 Method to segment image data.
 @param image-- the image to segment.
@@ -190,11 +190,11 @@ def outputData(segmask,seg_out, output):
 #this is just for testing to see if folder data is segmented.     
 if __name__ == "__main__":
     weight_location=os.path.join(pn,'weights','mask_rcnn_model.003-3.374101.h5')
-    images_path=os.path.join(pn,'structures','test')
+    images_path=os.path.join(pn,'test','mounded sites')
     
-    #image=os.path.join(pn,'structures','test','DJI_0335.JPG')
+    image=os.path.join(pn,'test','mounded sites','15639923240_9f630e902b_o.jpg')
     
-    #startSegmenting(image,weight_location,3,['qanat','mounded sites','ruined structure'],True, False)
+    startSegmenting(image,weight_location,3,['qanat','mounded sites','ruined structure'],True, False)
     
     
-    segmentFolder(weight_location,3,['ruined-structures','qanat_line','mounded sites'],True,images_path)
+    #segmentFolder(weight_location,3,['ruined structure','qanat','mounded sites'],True,images_path)
