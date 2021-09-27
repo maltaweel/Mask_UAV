@@ -14,7 +14,7 @@ from pixellib.custom_train import instance_custom_training
 #the path to use and apply in the module
 pn=os.path.abspath(__file__)
 pn=pn.split("training")[0]
-
+os.environ['LD_LIBRARY_PATH'] = os.getcwd() #set path for qt5
 '''
 Method to do training of images
 @param training_location-- the location of the training imagery data; should have a test folder with .json files.
